@@ -5,7 +5,7 @@
   
  <mapper namespace="com.iu.s1.bankbook.BankbookDAO">
  
-	<select id="detail" parameterType="com.iu.s1.bankbook.BankBookDTO">
+	<select id="detail" parameterType="java.lang.long" resultType="com.iu.s1.bankbook.BankBookDTO">
 		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</select>
 	
