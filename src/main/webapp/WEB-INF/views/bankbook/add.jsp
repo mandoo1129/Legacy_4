@@ -12,7 +12,7 @@
 	<form action="./add" method="POST">
 	BookName <input type="text" name="bookName">
 	BookRate <input type="text" name="bookRate">
-	BookContents <input type="text" name= 
+	BookContents <textarea name="bookContents" rows="10">
 	</form>
 
 </body>
