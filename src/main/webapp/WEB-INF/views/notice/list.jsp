@@ -10,25 +10,25 @@
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
-	<h1>BankBook List Page</h1>
-	
-	<!-- bookName, bookRate, bookSale -->
+	<h1>Notice List page</h1>
 	
 	<table>
 		<tr>
-			<th>상품명</th><th>이자율</th><th>판매</th>
+			<td>Num</td><td>Titel</td><td>Writer</td><td>Date</td><td>Hit</td>
 		</tr>
-		<c:forEach items="${list}" var="book">
+		<c:forEach items="${list}" var="dto">
 		<tr>
-			<td><a href="./detail?bookNumber=${book.bookNumber}">${book.bookName}</a></td>
-			<td>${book.bookRate}</td>
-			<td>${book.bookSale}</td>
+			<td>${dto.num}</td>
+			<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
+			<td>${dto.writer}</td>
+			<td>${dto.regDate}</td>
+			<td>${dto.hit}</td>
 		</tr>
+		
 		</c:forEach>
+		
+		<a href="./add">ADD</a>
 	</table>
-	
-	<a href="./add">ADD</a>
-	
-	
+
 </body>
 </html>
