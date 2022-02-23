@@ -18,6 +18,20 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	//Update
+	@RequestMapping(value ="update", method=RequestMethod.POST)
+	public String update(BankBookDTO bankBookDTO) throws Exception {
+		int result = bankBookService.update(bankBookDTO);
+		return "redirect:,/list";
+		
+	}
+	@RequestMapping(value = "update", method=RequestMethod.GET)
+	public void update(BankBookDTO bankBookDTO, Model model) throws Exception {
+		bankBookDTO = bankBookService.detail(bankbookDTO);
+		model.addAttribute("dto", bankBookDTO);
+		
+	}
+	
 	@RequestMapping("delete")
 	public String delete(BankBookDTO bankBookDTO)throws Exception{
 		int result = bankBookService.delete(bankBookDTO);

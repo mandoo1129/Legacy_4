@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+sharp"  rel="stylesheet">
-<style type="text/css">
-	.my::after {
-		content:"\e853"
-		}
-</style>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+sharp"  rel="stylesheet">
+	<style type="text/css">
+		.my::after {
+			content:"\e853"
+			}
+	</style>
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
@@ -34,7 +34,6 @@
 			<a class="my" href="./member/mypage">MyPage</a>
 			<a href="./member/join">Join</a>
 		</c:if>	
-		
 	</div>
 </body>
 </html>
