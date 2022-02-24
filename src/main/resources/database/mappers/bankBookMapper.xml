@@ -17,6 +17,7 @@
  	
  	<select id="list" resultType="BankBookDTO">
  		SELECT * FROM BANKBOOK
+ 		ORDER BY BOOKNUMBER DESC
  	</select>
  	
  	<insert id="add" parameterType="BankBookDTO">
