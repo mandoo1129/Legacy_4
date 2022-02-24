@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s1.MyJunitTest;
+import com.iu.s1.util.Pager;
 
 public class BankBookDAOTest extends MyJunitTest {
 	
@@ -22,7 +23,12 @@ public class BankBookDAOTest extends MyJunitTest {
 	//List
 	//@Test
 	public void listTest() throws Exception {
-		 List<BankBookDTO> ar = bankBookDAO.list();
+		Pager pager = new Pager();
+		pager.setPerPage(5L);
+		pager.makeRow();
+		 List<BankBookDTO> ar = bankBookDAO.list(pager);
+		 System.out.println(ar.get(0).getBookNumber());
+		 System.out.println(ar.get(4).getBookNumber());
 		 assertNotEquals(0, ar.size());
 	}
 	

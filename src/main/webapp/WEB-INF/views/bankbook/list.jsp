@@ -29,6 +29,21 @@
 		</c:forEach>
 	</table>
 	
+	<div>
+		<c:if test="${pager.pre}">
+			<a href="./list?page=${page.startNum-1}">PREVIEW</a>
+		</c:if>
+		
+		<c:for Each begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+			<a href="./list?page=${i}">&{i}</a>
+		</c:for Each>
+		
+		<c:if test="${pager.next}">
+			<a href="./list?page=${page.lastNum+1}">NEXT</a>
+		</c:if>
+	</div>
+	
+	
 	<a href="./add">ADD</a>
 	
 	
