@@ -18,6 +18,14 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+
+	//update
+	@RequestMapping(value = "update", method=RequestMethod.POST)
+	public String update(BankBookDTO bankBookDTO)throws Exception{
+		int result = bankBookService.update(bankBookDTO);
+		return "redirect: ./list";
+	}
+	
 	@RequestMapping(value = "update", method=RequestMethod.GET)
 	public void update(BankBookDTO bankBookDTO, Model model)throws Exception{
 		System.out.println(bankBookDTO.getBookNumber());
