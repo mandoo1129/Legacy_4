@@ -10,8 +10,7 @@
 	<h1>BankBook Update Page</h1>
 	
 	<form action="./update" method="POST">
-		<input type="hidden" readonly="readonly"
-		BookNumber <input type="text" name="bookNumber" value="${dto.bookNumber}">
+		<input type="hidden" readonly="readonly" name="bookNumber" value="${dto.bookNumber}">
 		BookName <input type="text" name="bookName" value="${dto.bookName}">
 		BookRate<input type="text" name="bookRate" value="${dto.bookRate}">
 		BookContents <textarea name="bookContents" rows="10" cols="">${dto.bookContents}</textarea>

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
+<link href="../resources/css/table.css" rel="stylesheet">
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
@@ -14,7 +15,7 @@
 	
 	<table>
 		<tr>
-			<td>Num</td><td>Titel</td><td>Writer</td><td>Date</td><td>Hit</td>
+			<td>Num</td><td>Title</td><td>Writer</td><td>Date</td><td>Hit</td>
 		</tr>
 		<c:forEach items="${list}" var="dto">
 		<tr>
