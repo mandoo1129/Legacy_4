@@ -6,6 +6,7 @@
  <mapper namespace="com.iu.s1.bankbook.BankBookDAO">
  
 	<update id="update" parameterType="BankBookDTO">
+ 	<update id="update" parameterType="BankBookDTO">
  		update bankbook 
  			set 
  				bookName=#{bookName}, bookContents=#{bookContents}
