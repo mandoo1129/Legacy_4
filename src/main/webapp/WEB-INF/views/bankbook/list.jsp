@@ -11,11 +11,27 @@
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
-	<h1>BankBook List Page</h1>
+
+<div class="table-container">
+	<h1 class="title">BankBook List Page2</h1>
 	
+	<!-- 검색창 -->
+	<div>
+		<form action=".list" method="get">
+			<fieldset>
+				<select name="kind">
+					<option value="col1">제목</option>
+					<option value="col2">본문</option>
+					<option value="col3">작성자</option>
+				</select>
+				<input type="text" name="search" value="${pager.search}">
+				<button type="submit">검색</button>
+			</fieldset>
+		</form>
+	</div>
 	<!-- bookName, bookRate, bookSale -->
 	
-	<table>
+	<table class="table-basic">
 		<tr>
 			<th>상품번호<th>상품명</th><th>이자율</th><th>판매</th>
 		</tr>
@@ -35,7 +51,7 @@
 		</c:if>
 		
 		<c:for Each begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-			<a href="./list?page=${i}">&{i}</a>
+			<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">&{i}</a>
 		</c:for Each>
 		
 		<c:if test="${pager.next}">

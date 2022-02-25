@@ -13,6 +13,8 @@ public class Pager {
 	//끝번호
 	private Long lastRow;
 	
+	private String kind;
+	
 	
 	//------------- JSP 사용 변수 ----------------
 	private Long startNum;
