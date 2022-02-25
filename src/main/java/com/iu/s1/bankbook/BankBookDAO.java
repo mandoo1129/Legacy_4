@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s1.util.Pager;
 
-//DB 연결해주는 DAO
-
 @Repository
 public class BankBookDAO {
 	
@@ -30,12 +28,12 @@ public class BankBookDAO {
 	}
 	
 	//total
-	public Long total() throws Exception {
+	public Long total()throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"total");
 	}
-	
+
 	//list
-	public List<BankBookDTO> list(Pager pager) throws Exception {
+	public List<BankBookDTO> list(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"list", pager);
 	}
 	

@@ -21,7 +21,7 @@ public class BankBookDAOTest extends MyJunitTest {
 	}
 
 	//List
-	//@Test
+	@Test
 	public void listTest() throws Exception {
 		Pager pager = new Pager();
 		pager.setPerPage(5L);
@@ -29,29 +29,33 @@ public class BankBookDAOTest extends MyJunitTest {
 		 List<BankBookDTO> ar = bankBookDAO.list(pager);
 		 System.out.println(ar.get(0).getBookNumber());
 		 System.out.println(ar.get(4).getBookNumber());
-		 assertNotEquals(0, ar.size());
+		 assertEquals(5, ar.size());
 	}
 	
 	//Insert
-	@Test
+	//@Test
 	public void addTest()throws Exception{
+		
+		
+		
 		for(int i=0;i<200;i++) {
 			BankBookDTO bankBookDTO = new BankBookDTO();
 			bankBookDTO.setBookName("bookName"+i);
 			bankBookDTO.setBookContents("Contents"+i);
 			
-			double rate = Math.random(); //0.0 ~ 1.0 미만의 double 타입을 리턴 0.12345678
-			rate = rate*1000; //123.4567
-			int r = (int)rate; //123
-			rate = r/10.0; //1.23
+			double rate = Math.random();//0.0 ~ 1.0 미만 0.12345678 
+			rate = rate*1000;//123.45678
+			int r = (int)rate;//123
+			rate = r/100.0;//1.23
 			
-			bankBookDTO.setBookRate(rate); //총 3자리, 소수점 2자리
+			bankBookDTO.setBookRate(rate);//총3자리, 소숫점 2자리
 			bankBookDTO.setBookSale(1);
 			int result = bankBookDAO.add(bankBookDTO);
 			
 			if(i%10==0) {
-				Thread.sleep(i); //1초 동안 멈추세요
+				Thread.sleep(1000);//1초동안 멈주세요
 			}
+			
 			
 		}
 		System.out.println("Insert Finish");
