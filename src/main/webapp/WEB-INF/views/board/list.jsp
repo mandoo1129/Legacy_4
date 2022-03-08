@@ -9,16 +9,12 @@
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/table.css" rel="styleSheet" />
 <link href="../resources/css/list.css" rel="styleSheet" />
-
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 	
-
-
 	<div class="table-container">
-		<h1 class="title">BankBook List Page2</h1>
-
+		<h1>${board} List page</h1>
 		<!-- 검색 창-->
 		<div class="search-form">
 			<form action="./list" method="get">
@@ -34,23 +30,31 @@
 			</form>
 
 		</div>
-
-		<!-- bookName, bookRate, bookSale -->
-		<table class="table-basic">
-			<tr>
-				<th>상품번호<th>상품명</th><th>이자율</th><th>판매</th>
-			</tr>
-			<c:forEach items="${list}" var="book">
-			<tr>
-				<td>${book.bookNumber}</td>
-				<td><a href="./detail?bookNumber=${book.bookNumber}">${book.bookName}</a></td>
-				<td>${book.bookRate}</td>
-				<td>${book.bookSale}</td>
-			</tr>
-			</c:forEach>
-		</table>
-	
-	
+		
+		
+		
+			<table class="table-basic">
+				<tr>
+					<td>Num</td><td>Title</td><td>Writer</td><td>Date</td><td>Hit</td>
+				</tr>
+				<c:forEach items="${list}" var="dto">
+				<tr>
+					<td>${dto.num}</td>
+					<td>
+						<a href="./detail?num=${dto.num}">
+							<c:catch var="message">
+								<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
+							</c:catch>
+							${dto.title}
+						</a>
+					</td>
+					<td>${dto.writer}</td>
+					<td>${dto.regDate}</td>
+					<td>${dto.hit}</td>
+				</tr>
+				
+				</c:forEach>	
+			</table>
 		<div>
 			<c:if test="${pager.pre}">
 				<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
@@ -64,11 +68,8 @@
 				<a href="./list?page=${pager.lastNum+1}">NEXT</a>
 			</c:if>
 			
-		</div>
-		
+		</div>	
 		<a href="./add">ADD</a>
 	</div>
-	
-	
 </body>
 </html>
