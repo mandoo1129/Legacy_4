@@ -10,7 +10,7 @@
 	<h1>Member Join Page</h1>
 	
 	<div>
-		<form action="./join" method="post" id="frm">
+		<form action="./join" method="post" id="frm" enctype="multipart/form-data">
 			<fieldset>
 				<legend>ID</legend>
 				<input type="text" name="id" id="idx">
@@ -43,6 +43,12 @@
 				<legend>Email</legend>
 				<input type="text" name="email" id="email">
 			</fieldset>
+			
+			<fieldset>
+				<legend>Photo</legend>
+				<input type="file" name="photo" id="photo">
+			</fieldset>
+			
 			
 			<fieldset>
 				<button type="button" id="btn">JOIN</button>

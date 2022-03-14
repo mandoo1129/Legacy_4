@@ -2,6 +2,7 @@ package com.iu.s1.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class MemberService {
@@ -18,7 +19,14 @@ public class MemberService {
 		return memberDAO.login(memberDTO);
 	}
 	
-	public int join(MemberDTO memberDTO)throws Exception{
+	public int join(MemberDTO memberDTO, MultipartFile photo)throws Exception{
+		return memberDAO.join(memberDTO);
+		
+		//1. 파일을 HDD에 저장
+		
+		//2. 정보를 DB에 저장
+		fileManager.save(photo, "resources/uploadmember/")
+		
 		return memberDAO.join(memberDTO);
 	}
 
