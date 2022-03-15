@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s1.board.BoardDTO;
@@ -24,6 +25,17 @@ public class NoticeController {
 	@ModelAttribute("board")
 	public String board() {
 		return "notice";
+	}
+	
+	@RequestMapping(value = "fileDown", method=RequestMethod.GET)
+	public ModelAndView fileDown(NoticeFileDTO noticeFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		noticeFileDTO = noticeService.detailFile(noticeFileDTO);
+		
+		mv.setViewName("fileDown");
+		mv.addObject("file", noticeFileDTO);
+		
+		return mv;
 	}
 	
 	@RequestMapping(value = "update", method=RequestMethod.POST)
@@ -50,9 +62,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "add", method=RequestMethod.POST)
-	public ModelAndView add(NoticeDTO noticeDTO)throws Exception{
+	public ModelAndView add(NoticeDTO noticeDTO, MultipartFile [] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = noticeService.add(noticeDTO);
+		int result = noticeService.add(noticeDTO, files);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

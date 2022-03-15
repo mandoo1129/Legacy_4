@@ -193,4 +193,8 @@ public class Pager {
 		this.kind = kind;
 	}
 	
+	
+	
+	
+
 }

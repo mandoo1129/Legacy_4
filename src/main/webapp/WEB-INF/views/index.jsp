@@ -8,11 +8,27 @@
 <title>Insert title here</title>
 	<c:import url="./template/header_css.jsp"></c:import>
 	<style type="text/css">
-	
+		.hea {
+			width:  80%;
+			height: 200px;
+			margin: 70px auto;
+			clear: both;
+			overflow: hidden;
+		}
+		
+		.hea img {
+			width: 100%;
+			height: 100%;
+			
+		}
 	</style>
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
+
+	<div class="hea">
+		<img alt="" src="./resources/images/back.jpg">
+	</div>
 
 	<h1>Index Page</h1>
 
@@ -36,6 +52,8 @@
 		</c:if>
 	
 	</div>
+	
+	<img alt="" src="./resources/upload/member/a53ff63b-667b-4163-a239-8dff3dfe91b6_iu1.jpg">
 	
 </body>
 </html>

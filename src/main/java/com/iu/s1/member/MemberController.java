@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -61,13 +60,24 @@ public class MemberController {
 		
 		memberDTO = memberService.login(memberDTO);
 		
-		String path="redirect:./login";
+//		String path="redirect:./login";
+//		
+//		if(memberDTO != null) {
+//			session.setAttribute("member", memberDTO);
+//			path = "redirect:../";
+//		}
+		
+		String message="Login Fail";
+		String p="./login";
 		
 		if(memberDTO != null) {
 			session.setAttribute("member", memberDTO);
-			path = "redirect:../";
+			message="Login Success";
+			p="../";
 		}
-		
+		model.addAttribute("message", message);
+		model.addAttribute("path", p);
+		String path="common/result";
 		return path;
 		
 	}
@@ -80,11 +90,8 @@ public class MemberController {
 	
 	//insert
 	@RequestMapping(value="join", method=RequestMethod.POST)
-	public String join(MemberDTO memberDTO, MultipartFile photo)throws Exception{
-		System.out.println(photo.getOriginalFilename());
-		System.out.println(photo.getSize());
-		
-		int result= memberService.join(memberDTO, photo);
+	public String join(MemberDTO memberDTO)throws Exception{
+		int result= memberService.join(memberDTO);
 		
 		return "redirect:../";
 	}
@@ -92,5 +99,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "join", method=RequestMethod.GET)
 	public void join()throws Exception{}
+	
+	@RequestMapping(value = "joinCheck", method=RequestMethod.GET)
+	public void joinCheck()throws Exception{}
 
 }
