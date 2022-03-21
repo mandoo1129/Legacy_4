@@ -1,26 +1,26 @@
-package com.iu.s1.board;
+package com.iu.s1.board.notice.noticeReply;
 
 import java.sql.Date;
 
-public class BoardDTO {
+public class NoticeReplyDTO {
+	
+	private Long replyNum;
 	private Long num;
-	private String title;
 	private String writer;
 	private String contents;
-	private Date regDate;//년-월-일, 년/월/일 ''
-	private Long hit;
+	private Date regDate;
 	
+	public Long getReplyNum() {
+		return replyNum;
+	}
+	public void setReplyNum(Long replyNum) {
+		this.replyNum = replyNum;
+	}
 	public Long getNum() {
 		return num;
 	}
 	public void setNum(Long num) {
 		this.num = num;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public String getWriter() {
 		return writer;
@@ -39,12 +39,6 @@ public class BoardDTO {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
-	}
-	public Long getHit() {
-		return hit;
-	}
-	public void setHit(Long hit) {
-		this.hit = hit;
 	}
 	
 	

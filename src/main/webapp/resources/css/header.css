@@ -36,8 +36,11 @@
 
 .nav_sub a {
     color: white;
+    
 }
 
+
+
 .icon {
-	vertical-align: baseline;
+	vertical-align: bottom;
 }

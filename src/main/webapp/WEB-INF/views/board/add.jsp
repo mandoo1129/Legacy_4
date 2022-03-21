@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
-<script src="../resources/js/file"></script>
+
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -18,18 +18,24 @@
 		Writer<input type="text" name="writer" value="${member.id}" readonly>
 		Contents<textarea name="contents" rows="" cols=""></textarea>
 		
-		<div id="fileresult">
-			<!-- <input type="file" name="files">
+		<div id="fileResult">
+			
+		<!--
+			<div>
+				<input type="file" name="files"><button type="button">DEL</button>
+			</div> 
 			<input type="file" name="files">
-			<input type="file" name="files"> -->
+			<input type="file" name="files">
+		 -->
 		</div>
 		<div>
 			<button type="button" id="fileAdd">FileAdd</button>
-			<button type="button" id="del">SampleDel</button>
+			<button type="button" class="del">Sample DEL</button>
 		</div>
+		
 		<button type="submit">ADD</button>
 	
 	</form>
-	
+	<script src="../resources/js/file.js"></script>
 </body>
 </html>
