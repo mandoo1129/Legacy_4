@@ -3,16 +3,61 @@ const num = document.querySelector("#num");
 const writer = document.querySelector("#writer");
 const contents = document.querySelector("#contents");
 const replyResult = document.querySelector("#replyResult");
+const del = document.querySelectorAll(".del") //CSS 클래스명
 
-result();
 
-function result(){
+//UPDATE
+
+replyResult.addEventListener("click", function(event){
+    if(event.target.classList.contains('update')){
+        console.log("update");
+    }
+
+});
+
+
+//DELETE
+
+
+replyResult.addEventListener("click", function(event){
+
+    if(event.target.classList.contains('del')){
+        let replyNum = event.target.getAttribute("data-num");
+
+        //url "/noticeReply/delete" method: post parameter: replyNum
+        //delete
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST, "../noticeReply/delete");
+
+        //요청 header 정보
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("replyNum="+replyNum);
+        xhttp.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200){
+                console.log
+            }
+        }
+        
+    }
+
+
+});
+getList();
+
+function getList(){
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "../noticeReply/list");
+    xhttp.open("GET", "../noticeReply/list?num="+num.value);
 
     xhttp.send();
 
+    xhttp.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200){
+            console.log(this.responseText);
+            replyResult.innerHTML = this.responseText.trim();
+        }
+    }
 }
 
 
@@ -28,6 +73,7 @@ reply.addEventListener("click", function(){
 
  
     //요청 정보 입력
+    //open('method형식', 'url주소')
     xhttp.open("POST", "../noticeReply/add");
 
 
@@ -46,6 +92,7 @@ reply.addEventListener("click", function(){
             let result = this.responseText.trim();
             if(result=='1'){
                 alert('댓글이 등록 되었습니다');
+                getList();
             }else {
                 alert('댓글 등록이 실패');
             }

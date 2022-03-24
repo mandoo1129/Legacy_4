@@ -26,6 +26,5 @@ public interface BoardDAO {
 	//total
 	public Long total(Pager pager)throws Exception;
 	
-	
 
 }
